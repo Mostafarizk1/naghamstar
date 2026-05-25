@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-cairo bg-brand-ivory text-brand-navy transition-colors duration-300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    background-color: #0e1b2b;
+    color: #ede9da;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cairo font-bold leading-tight;
+  }
+}
+
+@layer components {
+  .container-max {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-py {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .gold-line {
+    @apply block w-16 h-0.5 bg-brand-gold;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-brand-gold text-brand-navy font-bold text-sm rounded-xl
+           hover:bg-brand-gold-light active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/30 text-white font-semibold text-sm rounded-xl
+           hover:border-brand-gold hover:text-brand-gold active:scale-95 transition-all duration-200;
+  }
+
+  .btn-outline-dark {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 border-2 border-brand-navy/30 text-brand-navy font-semibold text-sm rounded-xl
+           hover:border-brand-gold hover:text-brand-gold active:scale-95 transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
