@@ -28,7 +28,10 @@ export interface ValueItem {
 
 export interface Project {
   id: string;
+  slug: string;
   title: LocalizedString;
   category: LocalizedString;
+  location?: LocalizedString;
+  image?: string;
   isPlaceholder: boolean;
 }

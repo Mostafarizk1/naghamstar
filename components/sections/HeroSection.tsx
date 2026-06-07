@@ -23,10 +23,16 @@ export default function HeroSection() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        {/* Dark overlay — يضمن قراءة النصوص */}
-        <div className="absolute inset-0 bg-brand-navy/75" />
+        {/* Overlay — gradient من يمين (النصوص) للشمال خفيف */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to left, rgba(14,27,43,0.72) 0%, rgba(14,27,43,0.45) 55%, rgba(14,27,43,0.12) 100%)',
+          }}
+        />
         {/* Bottom fade */}
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-brand-navy to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-brand-navy to-transparent" />
       </div>
 
       {/* Decorative circles — right side */}

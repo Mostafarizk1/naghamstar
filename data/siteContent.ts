@@ -72,21 +72,12 @@ export const values: ValueItem[] = [
 
 export const projects: Project[] = [
   {
-    id: 'proj-1',
-    title: { ar: 'وجهة تجارية — قريباً', en: 'Commercial Destination — Coming Soon' },
-    category: { ar: 'وجهات تجارية', en: 'Commercial Destinations' },
-    isPlaceholder: true,
-  },
-  {
-    id: 'proj-2',
-    title: { ar: 'مشروع استثماري — قريباً', en: 'Investment Project — Coming Soon' },
-    category: { ar: 'مشاريع استثمارية', en: 'Investment Projects' },
-    isPlaceholder: true,
-  },
-  {
-    id: 'proj-3',
-    title: { ar: 'أصول مُدارة — قريباً', en: 'Managed Assets — Coming Soon' },
-    category: { ar: 'إدارة الأصول', en: 'Asset Management' },
-    isPlaceholder: true,
+    id: 'devora-square',
+    slug: 'devora-square',
+    title: { ar: 'مجمع ديورا سكوير', en: 'Devora Square' },
+    category: { ar: 'وجهة تجارية', en: 'Commercial Destination' },
+    location: { ar: 'حي الشرائع، مكة المكرمة', en: 'Al Sharai District, Makkah' },
+    image: '/images/hero-bg.jpg',
+    isPlaceholder: false,
   },
 ];
