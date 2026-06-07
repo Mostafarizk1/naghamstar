@@ -1,34 +1,37 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Send, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import SectionHeader from '@/components/ui/SectionHeader';
 
 const contactItems = [
   {
-    icon: Phone,
-    labelAr: 'الهاتف',
-    labelEn: 'Phone',
-    valueAr: '+966 — — — — — —',
-    valueEn: '+966 — — — — — —',
-    href: 'tel:',
+    icon: MessageCircle,
+    labelAr: 'واتساب / هاتف',
+    labelEn: 'WhatsApp / Phone',
+    valueAr: '+966 56 556 2255',
+    valueEn: '+966 56 556 2255',
+    href: 'https://wa.me/966565562255',
+    isExternal: true,
   },
   {
     icon: Mail,
     labelAr: 'البريد الإلكتروني',
     labelEn: 'Email',
-    valueAr: 'info@naghamstar.com',
-    valueEn: 'info@naghamstar.com',
-    href: 'mailto:info@naghamstar.com',
+    valueAr: 'naghamstarr@outlook.sa',
+    valueEn: 'naghamstarr@outlook.sa',
+    href: 'mailto:naghamstarr@outlook.sa',
+    isExternal: false,
   },
   {
     icon: MapPin,
     labelAr: 'الموقع',
     labelEn: 'Location',
-    valueAr: 'المملكة العربية السعودية',
-    valueEn: 'Kingdom of Saudi Arabia',
+    valueAr: 'شارع المهندس عمر قاضي، حي الكوثر، مكة المكرمة',
+    valueEn: 'Omar Qadi St., Al Kawthar District, Makkah Al-Mukarramah',
     href: '#',
+    isExternal: false,
   },
 ];
 
@@ -52,10 +55,11 @@ export default function ContactSection() {
             />
 
             <div className="space-y-5">
-              {contactItems.map(({ icon: Icon, labelAr, labelEn, valueAr, valueEn, href }) => (
+              {contactItems.map(({ icon: Icon, labelAr, labelEn, valueAr, valueEn, href, isExternal }) => (
                 <motion.a
                   key={labelAr}
                   href={href}
+                  {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   initial={{ opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}

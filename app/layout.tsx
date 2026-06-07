@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cairo } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
+import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 const cairo = Cairo({
   subsets: ['arabic', 'latin'],
@@ -21,7 +22,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning className={cairo.variable}>
       <body className="font-cairo" suppressHydrationWarning>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <WhatsAppButton />
+        </Providers>
       </body>
     </html>
   );

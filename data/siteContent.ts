@@ -5,7 +5,7 @@ export const navLinks: NavLink[] = [
   { id: 'services', label: { ar: 'خدماتنا', en: 'Services' }, href: '#services' },
   { id: 'why', label: { ar: 'لماذا نغم ستار', en: 'Why Nagham Star' }, href: '#why' },
   { id: 'vision', label: { ar: 'رؤيتنا', en: 'Our Vision' }, href: '#vision' },
-  { id: 'projects', label: { ar: 'المشاريع', en: 'Projects' }, href: '#projects' },
+  { id: 'projects', label: { ar: 'المشاريع', en: 'Projects' }, href: '/projects' },
   { id: 'contact', label: { ar: 'تواصل معنا', en: 'Contact' }, href: '#contact' },
 ];
 
