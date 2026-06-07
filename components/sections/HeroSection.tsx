@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function HeroSection() {
@@ -11,18 +12,22 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen bg-brand-navy flex items-center overflow-hidden">
 
-      {/* Background decorative pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(201,169,110,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      {/* Radial glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-gold/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="نغم ستار العقارية — مشاريع استثمارية"
+          fill
+          priority
+          quality={85}
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        {/* Dark overlay — يضمن قراءة النصوص */}
+        <div className="absolute inset-0 bg-brand-navy/75" />
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-brand-navy to-transparent" />
+      </div>
 
       {/* Decorative circles — right side */}
       <div className="absolute -right-32 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block animate-float">
