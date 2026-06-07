@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22" fill="#0e1b2b"/>
+  <!-- Subtle grid -->
+  <defs>
+    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#c9a96e" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#grid)"/>
+  <!-- Gold circle glow -->
+  <circle cx="50" cy="50" r="38" fill="none" stroke="#c9a96e" stroke-width="0.8" opacity="0.2"/>
+  <!-- Star shape -->
+  <polygon
+    points="50,18 56.2,38.2 77.6,38.2 61.7,50.2 67.9,70.4 50,58.4 32.1,70.4 38.3,50.2 22.4,38.2 43.8,38.2"
+    fill="#c9a96e"
+  />
+</svg>
