@@ -8,7 +8,7 @@ import VisionMissionSection from '@/components/sections/VisionMissionSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import CTASection from '@/components/sections/CTASection';
 import ContactSection from '@/components/sections/ContactSection';
-import SkylineDivider from '@/components/ui/SkylineDivider';
+import ArchitecturalDivider from '@/components/ui/ArchitecturalDivider';
 
 export default function Home() {
   return (
@@ -16,19 +16,13 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <SkylineDivider />
+        <ArchitecturalDivider />
         <AboutSection />
-        <SkylineDivider />
         <ServicesSection />
-        <SkylineDivider />
         <WhyNameSection />
-        <SkylineDivider />
         <VisionMissionSection />
-        <SkylineDivider />
         <ProjectsSection />
-        <SkylineDivider />
         <CTASection />
-        <SkylineDivider />
         <ContactSection />
       </main>
       <Footer />

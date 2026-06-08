@@ -21,15 +21,6 @@ export default function ProjectsPage() {
 
       {/* Page hero */}
       <section className="relative pt-20 pb-14 text-center overflow-hidden">
-        {/* Diagonal pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: "url('/patterns/pattern-diagonal.svg')",
-            backgroundRepeat: 'repeat',
-            backgroundSize: '100px 100px',
-          }}
-        />
         <motion.div
           className="relative z-10"
           initial={{ opacity: 0, y: 20 }}
@@ -45,17 +36,6 @@ export default function ProjectsPage() {
           <div className="w-16 h-0.5 bg-brand-gold mx-auto" />
         </motion.div>
       </section>
-
-      {/* Skyline divider */}
-      <div
-        className="w-full opacity-15"
-        style={{
-          height: '32px',
-          backgroundImage: "url('/patterns/pattern-border.svg')",
-          backgroundRepeat: 'repeat-x',
-          backgroundSize: 'auto 100%',
-        }}
-      />
 
       {/* Projects grid */}
       <section className="py-16 pb-28">

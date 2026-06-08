@@ -31,15 +31,6 @@ export default function HeroSection() {
               'linear-gradient(to left, rgba(14,27,43,0.72) 0%, rgba(14,27,43,0.45) 55%, rgba(14,27,43,0.12) 100%)',
           }}
         />
-        {/* Diagonal brand pattern — subtle texture over image */}
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage: "url('/patterns/pattern-diagonal.svg')",
-            backgroundRepeat: 'repeat',
-            backgroundSize: '100px 100px',
-          }}
-        />
         {/* Bottom fade */}
         <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-brand-navy to-transparent" />
       </div>
