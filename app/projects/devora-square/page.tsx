@@ -51,12 +51,21 @@ export default function DevoraSqaurePage() {
       {/* ── Hero ── */}
       <section className="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/hero-desktop.webp"
           alt="مجمع ديورا سكوير"
           fill
           priority
-          quality={85}
-          className="object-cover object-center"
+          quality={90}
+          className="object-cover object-center hidden sm:block"
+          sizes="100vw"
+        />
+        <Image
+          src="/images/hero-mobile.webp"
+          alt="مجمع ديورا سكوير"
+          fill
+          priority
+          quality={90}
+          className="object-cover object-center block sm:hidden"
           sizes="100vw"
         />
         <div

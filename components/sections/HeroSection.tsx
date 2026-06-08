@@ -12,15 +12,24 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen bg-brand-navy flex items-center overflow-hidden">
 
-      {/* Background image */}
+      {/* Background image — desktop/mobile responsive */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/hero-desktop.webp"
           alt="نغم ستار العقارية — مشاريع استثمارية"
           fill
           priority
-          quality={85}
-          className="object-cover object-center"
+          quality={90}
+          className="object-cover object-center hidden sm:block"
+          sizes="100vw"
+        />
+        <Image
+          src="/images/hero-mobile.webp"
+          alt="نغم ستار العقارية — مشاريع استثمارية"
+          fill
+          priority
+          quality={90}
+          className="object-cover object-center block sm:hidden"
           sizes="100vw"
         />
         {/* Overlay — gradient من يمين (النصوص) للشمال خفيف */}

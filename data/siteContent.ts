@@ -77,7 +77,7 @@ export const projects: Project[] = [
     title: { ar: 'مجمع ديورا سكوير', en: 'Devora Square' },
     category: { ar: 'وجهة تجارية', en: 'Commercial Destination' },
     location: { ar: 'حي الشرائع، مكة المكرمة', en: 'Al Sharai District, Makkah' },
-    image: '/images/hero-bg.jpg',
+    image: '/images/hero-desktop.webp',
     isPlaceholder: false,
   },
 ];
