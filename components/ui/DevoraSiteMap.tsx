@@ -73,9 +73,9 @@ const southShowroom: Unit = {
   cx:      2790,
   cy:      270,
   r:       95,
-  labelAr: 'المعرض الجنوبي',
+  labelAr: 'المعرض الشمالي',
   area:    '3,956 م²',
-  waMsg:   'مرحباً، أرغب في الاستفسار عن المعرض الجنوبي (3,956 م²) في مجمع ديورا سكوير — حي الشرائع، مكة المكرمة',
+  waMsg:   'مرحباً، أرغب في الاستفسار عن المعرض الشمالي (3,956 م²) في مجمع ديورا سكوير — حي الشرائع، مكة المكرمة',
   kind:    'south',
   tipBelow: false,
   tipLeft:  true,
@@ -87,7 +87,7 @@ const panda: Unit = {
   cx:      420,
   cy:      280,
   r:       95,
-  labelAr: 'المعرض الشمالي',
+  labelAr: 'مأجر لـ بنده',
   waMsg:   '',
   kind:    'panda',
   tipBelow: true,
@@ -235,12 +235,12 @@ function Marker({
             textAnchor="middle" fill="white"
             fontSize="18" fontWeight="bold"
             fontFamily="Cairo, Tajawal, Arial, sans-serif">
-            المعرض
+            مأجر
           </text>
           <text x={u.cx} y={u.cy + 16}
             textAnchor="middle" fill="white" fontSize="17"
             fontFamily="Cairo, Tajawal, Arial, sans-serif">
-            الشمالي
+            لـ بنده
           </text>
         </>
       ) : isSouth ? (
@@ -254,7 +254,7 @@ function Marker({
           <text x={u.cx} y={u.cy + 16}
             textAnchor="middle" fill={textFill} fontSize="17"
             fontFamily="Cairo, Tajawal, Arial, sans-serif">
-            الجنوبي
+            الشمالي
           </text>
         </>
       ) : (
@@ -358,11 +358,11 @@ export default function DevoraSiteMap() {
         </div>
         <div className="flex items-center gap-2.5">
           <div className="w-5 h-5 rounded-full bg-brand-gold shrink-0" />
-          <span className="text-white/70 text-sm font-medium">المعرض الجنوبي</span>
+          <span className="text-white/70 text-sm font-medium">المعرض الشمالي</span>
         </div>
         <div className="flex items-center gap-2.5">
           <div className="w-5 h-5 rounded-full bg-red-500 shrink-0" />
-          <span className="text-white/70 text-sm font-medium">المعرض الشمالي</span>
+          <span className="text-white/70 text-sm font-medium">مأجر لـ بنده</span>
         </div>
         <p className="text-white/30 text-xs mr-auto hidden sm:block">
           اضغط على أي وحدة للاستفسار عبر واتساب
