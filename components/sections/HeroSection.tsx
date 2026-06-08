@@ -88,8 +88,8 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 text-balance"
-            style={{ lineHeight: '1.55' }}
+            className="text-[1.75rem] sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6"
+            style={{ lineHeight: '1.6', wordBreak: 'keep-all' }}
           >
             {language === 'ar' ? (
               <>

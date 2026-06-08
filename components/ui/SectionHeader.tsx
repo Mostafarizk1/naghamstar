@@ -25,7 +25,7 @@ export default function SectionHeader({ label, title, subtitle, align = 'start',
           {label}
         </span>
       )}
-      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5 ${light ? 'text-white' : 'text-brand-navy dark:text-brand-beige'}`}>
+      <h2 className={`text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5 ${light ? 'text-white' : 'text-brand-navy dark:text-brand-beige'}`}>
         {title}
       </h2>
       {label && (
