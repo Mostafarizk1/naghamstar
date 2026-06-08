@@ -6,21 +6,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { projects } from '@/data/siteContent';
-import PageHeader from '@/components/layout/PageHeader';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 export default function ProjectsPage() {
   const { t, language } = useLanguage();
 
   return (
-    <main className="min-h-screen bg-brand-navy">
+    <div className="min-h-screen bg-brand-navy">
 
-      <PageHeader crumbs={[
-        { label: { ar: 'الرئيسية', en: 'Home' }, href: '/' },
-        { label: { ar: 'المشاريع', en: 'Projects' } },
-      ]} />
+      <Header />
 
       {/* Page hero */}
-      <section className="relative pt-20 pb-14 text-center overflow-hidden">
+      <section className="relative pt-28 pb-14 text-center overflow-hidden">
         <motion.div
           className="relative z-10"
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +36,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects grid */}
-      <section className="py-16 pb-28">
+      <section className="py-12 pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
             {projects.map((project, i) => (
@@ -96,6 +94,8 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-    </main>
+
+      <Footer />
+    </div>
   );
 }
