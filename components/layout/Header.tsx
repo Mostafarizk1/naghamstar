@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, Star } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import ThemeToggle from '@/components/ui/ThemeToggle';
@@ -31,14 +32,15 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-9 h-9 rounded-full bg-brand-gold flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
-              <Star className="w-4 h-4 text-brand-navy fill-brand-navy" />
-            </div>
-            <div className="leading-none">
-              <div className="text-white font-bold text-[15px] leading-tight">نغم ستار</div>
-              <div className="text-brand-gold text-[11px] font-medium tracking-wide">العقارية</div>
-            </div>
+          <a href="/" className="flex items-center shrink-0 group">
+            <Image
+              src="/logos/logo-horizontal.svg"
+              alt="نغم ستار العقارية"
+              width={160}
+              height={46}
+              priority
+              className="h-10 w-auto md:h-12 transition-opacity duration-200 group-hover:opacity-80"
+            />
           </a>
 
           {/* Desktop nav */}
@@ -47,7 +49,7 @@ export default function Header() {
               <a
                 key={link.id}
                 href={link.href}
-                className="relative text-white/75 hover:text-brand-gold text-sm font-medium transition-colors duration-200 group"
+                className="relative text-white/75 hover:text-brand-gold text-sm font-cairo font-medium transition-colors duration-200 group"
               >
                 {t(link.label.ar, link.label.en)}
                 <span className="absolute -bottom-0.5 inset-x-0 h-px bg-brand-gold origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
@@ -61,7 +63,7 @@ export default function Header() {
             <ThemeToggle />
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 bg-brand-gold text-brand-navy text-sm font-bold rounded-xl hover:bg-brand-gold-light active:scale-95 transition-all duration-200 shadow-md"
+              className="hidden sm:inline-flex items-center px-5 py-2.5 bg-brand-gold text-brand-navy text-sm font-cairo font-bold rounded-xl hover:bg-brand-gold-light active:scale-95 transition-all duration-200 shadow-md"
             >
               {t('تواصل معنا', 'Contact Us')}
             </a>
@@ -92,7 +94,7 @@ export default function Header() {
                   key={link.id}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="py-3 text-white/75 hover:text-brand-gold font-medium text-base border-b border-white/8 last:border-none transition-colors duration-200"
+                  className="py-3 text-white/75 hover:text-brand-gold font-cairo font-medium text-base border-b border-white/8 last:border-none transition-colors duration-200"
                 >
                   {t(link.label.ar, link.label.en)}
                 </a>
@@ -100,7 +102,7 @@ export default function Header() {
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-3 flex justify-center px-5 py-3 bg-brand-gold text-brand-navy font-bold rounded-xl text-sm"
+                className="mt-3 flex justify-center px-5 py-3 bg-brand-gold text-brand-navy font-cairo font-bold rounded-xl text-sm"
               >
                 {t('تواصل معنا', 'Contact Us')}
               </a>

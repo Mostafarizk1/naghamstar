@@ -1,6 +1,7 @@
 'use client';
 
-import { Star, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { navLinks } from '@/data/siteContent';
 
@@ -57,14 +58,14 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-full bg-brand-gold flex items-center justify-center">
-                <Star className="w-4 h-4 text-brand-navy fill-brand-navy" />
-              </div>
-              <div className="leading-none">
-                <div className="text-white font-bold text-[15px] leading-tight">نغم ستار</div>
-                <div className="text-brand-gold text-[11px] font-medium tracking-wide">العقارية</div>
-              </div>
+            <div className="mb-6">
+              <Image
+                src="/logos/logo-horizontal.svg"
+                alt="نغم ستار العقارية"
+                width={180}
+                height={52}
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-white/55 text-sm leading-relaxed max-w-sm">
               {t(

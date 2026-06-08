@@ -21,11 +21,18 @@
   }
 
   .dark body {
-    background-color: #0e1b2b;
-    color: #ede9da;
+    background-color: #012847;
+    color: #e1d3b8;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  /* Lyon Arabic — الحروف الكبيرة فقط */
+  h1, h2 {
+    font-family: var(--font-lyon), serif;
+    font-weight: 700;
+    line-height: 1.55;
+  }
+
+  h3, h4, h5, h6 {
     @apply font-cairo font-bold leading-tight;
   }
 }
@@ -45,17 +52,17 @@
 
   .btn-primary {
     @apply inline-flex items-center gap-2 px-7 py-3.5 bg-brand-gold text-brand-navy font-bold text-sm rounded-xl
-           hover:bg-brand-gold-light active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg;
+           hover:bg-brand-gold-light active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg font-cairo;
   }
 
   .btn-outline {
     @apply inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/30 text-white font-semibold text-sm rounded-xl
-           hover:border-brand-gold hover:text-brand-gold active:scale-95 transition-all duration-200;
+           hover:border-brand-gold hover:text-brand-gold active:scale-95 transition-all duration-200 font-cairo;
   }
 
   .btn-outline-dark {
     @apply inline-flex items-center gap-2 px-7 py-3.5 border-2 border-brand-navy/30 text-brand-navy font-semibold text-sm rounded-xl
-           hover:border-brand-gold hover:text-brand-gold active:scale-95 transition-all duration-200;
+           hover:border-brand-gold hover:text-brand-gold active:scale-95 transition-all duration-200 font-cairo;
   }
 
   .card-hover {
@@ -66,5 +73,13 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .font-lyon {
+    font-family: var(--font-lyon), serif;
+  }
+
+  .font-cairo-force {
+    font-family: var(--font-cairo), 'Cairo', sans-serif !important;
   }
 }
