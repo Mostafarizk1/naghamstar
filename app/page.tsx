@@ -8,15 +8,12 @@ import VisionMissionSection from '@/components/sections/VisionMissionSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import CTASection from '@/components/sections/CTASection';
 import ContactSection from '@/components/sections/ContactSection';
-import ArchitecturalDivider from '@/components/ui/ArchitecturalDivider';
-
 export default function Home() {
   return (
     <>
       <Header />
       <main>
         <HeroSection />
-        <ArchitecturalDivider />
         <AboutSection />
         <ServicesSection />
         <WhyNameSection />
