@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+  <!-- Icon tile 1 — top right -->
+  <g transform="translate(52, 4) scale(0.055)">
+    <polygon points="231.78 340 208.51 340 208.51 180.46 231.78 163.48 231.78 340" fill="#cdb689"/>
+    <polygon points="268.27 287.6 244.99 287.6 244.99 142.7 268.27 125.72 268.27 287.6" fill="#cdb689"/>
+    <polygon points="303.49 287.6 280.22 287.6 280.22 68 303.49 101.18 303.49 287.6" fill="#cdb689"/>
+  </g>
+  <!-- Icon tile 2 — bottom left (offset for diagonal stagger) -->
+  <g transform="translate(2, 54) scale(0.055)">
+    <polygon points="231.78 340 208.51 340 208.51 180.46 231.78 163.48 231.78 340" fill="#cdb689"/>
+    <polygon points="268.27 287.6 244.99 287.6 244.99 142.7 268.27 125.72 268.27 287.6" fill="#cdb689"/>
+    <polygon points="303.49 287.6 280.22 287.6 280.22 68 303.49 101.18 303.49 287.6" fill="#cdb689"/>
+  </g>
+</svg>

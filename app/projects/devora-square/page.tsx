@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Phone, MessageCircle, ArrowLeft, Star, ChevronLeft, Building2, CalendarClock } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, ChevronLeft, Building2, CalendarClock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import PageHeader from '@/components/layout/PageHeader';
 
 const VIDEO_URL = 'https://player.mediadelivery.net/play/581330/f0f9b8ae-b5f1-49e6-b542-2c0243c47562';
 const MAPS_EMBED  = 'https://maps.google.com/maps?q=حي+الشرائع+مكة+المكرمة&z=15&output=embed&hl=ar';
@@ -41,28 +42,11 @@ export default function DevoraSqaurePage() {
     <main className="min-h-screen bg-brand-navy">
 
       {/* ── Top bar ── */}
-      <div className="bg-brand-navy/95 border-b border-white/10 sticky top-0 z-40 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-              <Star className="w-4 h-4 text-brand-navy fill-brand-navy" />
-            </div>
-            <div className="leading-none">
-              <div className="text-white font-bold text-[14px]">نغم ستار</div>
-              <div className="text-brand-gold text-[10px] font-medium">العقارية</div>
-            </div>
-          </Link>
-
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-white/40">
-            <Link href="/" className="hover:text-brand-gold transition-colors">{t('الرئيسية', 'Home')}</Link>
-            <ChevronLeft className="w-3.5 h-3.5 rotate-180" />
-            <Link href="/projects" className="hover:text-brand-gold transition-colors">{t('المشاريع', 'Projects')}</Link>
-            <ChevronLeft className="w-3.5 h-3.5 rotate-180" />
-            <span className="text-white/70">{t('ديورا سكوير', 'Devora Square')}</span>
-          </nav>
-        </div>
-      </div>
+      <PageHeader crumbs={[
+        { label: { ar: 'الرئيسية', en: 'Home' }, href: '/' },
+        { label: { ar: 'المشاريع', en: 'Projects' }, href: '/projects' },
+        { label: { ar: 'ديورا سكوير', en: 'Devora Square' } },
+      ]} />
 
       {/* ── Hero ── */}
       <section className="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">

@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, ArrowLeft, Star, ChevronLeft } from 'lucide-react';
+import { MapPin, ChevronLeft } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { projects } from '@/data/siteContent';
+import PageHeader from '@/components/layout/PageHeader';
 
 export default function ProjectsPage() {
   const { t, language } = useLanguage();
@@ -13,34 +14,24 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-brand-navy">
 
-      {/* Top bar */}
-      <div className="bg-brand-navy/95 border-b border-white/10 sticky top-0 z-40 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
-              <Star className="w-4 h-4 text-brand-navy fill-brand-navy" />
-            </div>
-            <div className="leading-none">
-              <div className="text-white font-bold text-[14px]">نغم ستار</div>
-              <div className="text-brand-gold text-[10px] font-medium">العقارية</div>
-            </div>
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center gap-1.5 text-white/55 hover:text-brand-gold text-sm font-medium transition-colors duration-200"
-          >
-            {language === 'ar' ? (
-              <><ArrowLeft className="w-4 h-4" /> الرئيسية</>
-            ) : (
-              <>Home <ChevronLeft className="w-4 h-4" /></>
-            )}
-          </Link>
-        </div>
-      </div>
+      <PageHeader crumbs={[
+        { label: { ar: 'الرئيسية', en: 'Home' }, href: '/' },
+        { label: { ar: 'المشاريع', en: 'Projects' } },
+      ]} />
 
       {/* Page hero */}
-      <section className="pt-20 pb-14 text-center">
+      <section className="relative pt-20 pb-14 text-center overflow-hidden">
+        {/* Diagonal pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: "url('/patterns/pattern-diagonal.svg')",
+            backgroundRepeat: 'repeat',
+            backgroundSize: '100px 100px',
+          }}
+        />
         <motion.div
+          className="relative z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -48,15 +39,26 @@ export default function ProjectsPage() {
           <span className="text-xs font-bold tracking-[0.22em] uppercase text-brand-gold block mb-4">
             {t('محفظتنا', 'Our Portfolio')}
           </span>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h1 className="text-4xl md:text-5xl text-white mb-4">
             {t('مشاريعنا', 'Our Projects')}
           </h1>
           <div className="w-16 h-0.5 bg-brand-gold mx-auto" />
         </motion.div>
       </section>
 
+      {/* Skyline divider */}
+      <div
+        className="w-full opacity-15"
+        style={{
+          height: '32px',
+          backgroundImage: "url('/patterns/pattern-border.svg')",
+          backgroundRepeat: 'repeat-x',
+          backgroundSize: 'auto 100%',
+        }}
+      />
+
       {/* Projects grid */}
-      <section className="pb-28">
+      <section className="py-16 pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
             {projects.map((project, i) => (
@@ -70,7 +72,6 @@ export default function ProjectsPage() {
                   href={`/projects/${project.slug}`}
                   className="group block rounded-2xl overflow-hidden border border-white/10 bg-brand-navy-light hover:border-brand-gold/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-gold/5"
                 >
-                  {/* Image */}
                   <div className="relative h-56 overflow-hidden">
                     {project.image ? (
                       <Image
@@ -87,17 +88,13 @@ export default function ProjectsPage() {
                         </span>
                       </div>
                     )}
-                    {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/30 to-transparent" />
-                    {/* Category badge */}
                     <div className="absolute top-4 right-4">
                       <span className="px-3 py-1 rounded-full bg-brand-gold/20 border border-brand-gold/30 text-brand-gold text-[11px] font-bold tracking-wide backdrop-blur-sm">
                         {t(project.category.ar, project.category.en)}
                       </span>
                     </div>
                   </div>
-
-                  {/* Info */}
                   <div className="p-5">
                     <h3 className="text-white font-bold text-lg mb-2 group-hover:text-brand-gold transition-colors duration-200">
                       {t(project.title.ar, project.title.en)}
@@ -110,7 +107,7 @@ export default function ProjectsPage() {
                     )}
                     <div className="mt-4 flex items-center gap-1.5 text-brand-gold text-xs font-semibold">
                       {t('استعرض المشروع', 'View Project')}
-                      <ChevronLeft className={`w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-[-4px] ${language === 'ar' ? '' : 'rotate-180'}`} />
+                      <ChevronLeft className={`w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-x-1 ${language === 'ar' ? '' : 'rotate-180'}`} />
                     </div>
                   </div>
                 </Link>
