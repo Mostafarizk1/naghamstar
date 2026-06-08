@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import DevoraSiteMap from '@/components/ui/DevoraSiteMap';
 
 const VIDEO_URL  = 'https://player.mediadelivery.net/play/581330/f0f9b8ae-b5f1-49e6-b542-2c0243c47562';
 const MAPS_EMBED = 'https://maps.google.com/maps?q=ديورا+سكوير+حي+الشرائع+مكة+المكرمة&z=16&output=embed&hl=ar';
@@ -79,10 +80,8 @@ export default function DevoraSqaurePage() {
 
       {/* ── Hero ── */}
       <section className="relative h-[72vh] min-h-[520px] flex items-end overflow-hidden">
-        <Image src="/images/hero-desktop.webp" alt="مجمع ديورا سكوير" fill priority quality={90}
-          className="object-cover object-center hidden sm:block" sizes="100vw" />
-        <Image src="/images/hero-mobile.webp"  alt="مجمع ديورا سكوير" fill priority quality={90}
-          className="object-cover object-center block sm:hidden" sizes="100vw" />
+        <Image src="/images/devora-hero.webp" alt="مجمع ديورا سكوير" fill priority quality={90}
+          className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0"
           style={{ background: 'linear-gradient(to top, rgba(1,40,71,1) 0%, rgba(1,40,71,0.6) 55%, rgba(1,40,71,0.1) 100%)' }} />
 
@@ -258,7 +257,7 @@ export default function DevoraSqaurePage() {
                   <iframe
                     src={VIDEO_URL}
                     title="مجمع ديورا سكوير"
-                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allow="accelerometer; gyroscope; encrypted-media; picture-in-picture; fullscreen"
                     allowFullScreen
                     className="absolute inset-0 w-full h-full"
                     style={{ border: 'none' }}
@@ -348,8 +347,38 @@ export default function DevoraSqaurePage() {
         </div>
       </section>
 
-      {/* ── Map + Location ── */}
+      {/* ── Interactive Site Map ── */}
       <section className="py-20 bg-[#010f1c]">
+        {/* Title stays within max-w-7xl */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-brand-gold block mb-3">
+              {t('المخطط التفاعلي', 'Interactive Floor Plan')}
+            </span>
+            <h2 className="text-white text-2xl md:text-3xl font-black mb-2">
+              {t('اختر وحدتك على الخريطة', 'Select Your Unit on the Map')}
+            </h2>
+            <p className="text-white/40 text-sm">
+              {t(
+                'حرّك الماوس فوق أي وحدة للتفاصيل — اضغط عليها للتواصل مباشرةً عبر واتساب',
+                'Hover over any unit for details — click to contact directly via WhatsApp'
+              )}
+            </p>
+          </motion.div>
+        </div>
+        {/* Map extends wider for readability — no whileInView so it's always visible */}
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
+          <DevoraSiteMap />
+        </div>
+      </section>
+
+      {/* ── Map + Location ── */}
+      <section className="py-20 bg-brand-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
