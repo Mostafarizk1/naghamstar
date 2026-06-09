@@ -65,10 +65,11 @@ const contacts = [
 ];
 
 const proximity = [
+  { ar: 'يطل على شارع الأمير فيصل بن فهد بعرض 64 م',    en: 'Frontage on Prince Faisal bin Fahd St (64 m)' },
+  { ar: 'يطل على شارع الفردوس بعرض 32 م',               en: 'Frontage on Al Firdous St (32 m)' },
   { ar: 'دقيقة واحدة من طريق السيل الطائف',             en: '1 minute from Taif–Al Sail Road' },
   { ar: 'دقيقتان من مدينة الملك عبدالعزيز الرياضية',    en: '2 minutes from King Abdulaziz Sports City' },
   { ar: '15 دقيقة من الحرم المكي الشريف',               en: '15 minutes from Al-Masjid Al-Haram' },
-  { ar: 'كثافة سكانية عالية ونمو عمراني متسارع',         en: 'High density area with rapid urban growth' },
 ];
 
 export default function DevoraSqaurePage() {
@@ -175,8 +176,8 @@ export default function DevoraSqaurePage() {
                   </h2>
                   <p className="text-white/60 text-base leading-relaxed">
                     {t(
-                      'المعرض الشمالي محجوز لـ بنده — أكبر سلسلة سوبر ماركت في السعودية. يعني آلاف الزوار يومياً، ترافيك مضمون، وزبون جاهز للشراء قبل ما تفتح بابك.',
-                      'The north showroom is reserved for Panda — Saudi Arabia\'s largest supermarket chain. Thousands of daily visitors, guaranteed traffic, and a ready-to-buy customer before you even open your doors.'
+                      'المعرض الجنوبي محجوز لـ بنده — أكبر سلسلة سوبر ماركت في السعودية. يعني آلاف الزوار يومياً، ترافيك مضمون، وزبون جاهز للشراء قبل ما تفتح بابك.',
+                      'The south showroom is reserved for Panda — Saudi Arabia\'s largest supermarket chain. Thousands of daily visitors, guaranteed traffic, and a ready-to-buy customer before you even open your doors.'
                     )}
                   </p>
                 </div>
@@ -218,8 +219,8 @@ export default function DevoraSqaurePage() {
               <div className="w-14 h-0.5 bg-brand-gold mb-7" />
               <p className="text-white/60 text-base leading-loose mb-8">
                 {t(
-                  'مجمع ديورا سكوير وجهة تجارية متكاملة تتموضع في حي الشرائع بمكة المكرمة — المنطقة الأسرع نمواً على امتداد طريق الملك عبدالعزيز. يجمع المجمع بين الهوية المعمارية العصرية وروح المكان السعودي الأصيل، ليكون بيئة تجارية تستقطب أرقى العلامات.',
-                  'Devora Square is a fully integrated commercial destination in Al Sharai District — one of the fastest-growing areas along King Abdulaziz Road, combining modern architectural identity with authentic Saudi spirit to attract the finest brands.'
+                  'فرصة استثمارية استثنائية في قلب أحياء الشرائع والراشدية بمكة المكرمة — المنطقة الأسرع نمواً وأعلاها كثافةً سكانية. يمتد ديورا سكوير على مساحة إجمالية 18,000 م² بأربع واجهات رئيسية، يطل على شارع الأمير فيصل بن فهد بعرض 64 م وشارع الفردوس بعرض 32 م. يضم المجمع معرضين تجاريين رئيسيين و21 محلاً تجارياً و6 أكشاك درايف ثرو، إلى جانب مواقف علوية وبدروم واسع لخدمة الزوار والمستثمرين.',
+                  'An exceptional investment opportunity in the heart of Al Sharai and Al Rashidiya Districts, Makkah — the fastest-growing, highest-density area in the city. Devora Square spans 18,000 m² with four main facades overlooking Prince Faisal bin Fahd Street (64 m) and Al Firdous Street (32 m), comprising two main showrooms, 21 commercial units, 6 drive-thru kiosks, rooftop parking, and a spacious basement.'
                 )}
               </p>
 
