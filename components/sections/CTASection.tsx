@@ -9,7 +9,7 @@ export default function CTASection() {
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative py-24 md:py-32 bg-brand-navy overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-brand-navy dark:bg-brand-navy overflow-hidden">
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.04]"

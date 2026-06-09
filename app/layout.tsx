@@ -80,8 +80,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="ar"
       dir="rtl"
       suppressHydrationWarning
-      className={`${cairo.variable} ${lyonArabic.variable}`}
+      className={`dark ${cairo.variable} ${lyonArabic.variable}`}
     >
+      {/* Anti-FOUC: apply theme before React mounts to prevent flash */}
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('nagham-theme');document.documentElement.classList.toggle('dark',t!=='light')}catch(e){document.documentElement.classList.add('dark')}})()`,
+          }}
+        />
+      </head>
       <body className="font-cairo" suppressHydrationWarning>
         <Providers>
           <SplashScreen />

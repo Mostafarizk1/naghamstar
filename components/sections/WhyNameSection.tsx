@@ -7,7 +7,7 @@ export default function WhyNameSection() {
   const { t, language } = useLanguage();
 
   return (
-    <section id="why" className="section-py bg-brand-navy overflow-hidden relative">
+    <section id="why" className="section-py bg-brand-navy dark:bg-brand-navy overflow-hidden relative">
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"

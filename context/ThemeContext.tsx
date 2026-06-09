@@ -12,12 +12,12 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
     const saved = localStorage.getItem('nagham-theme') as Theme | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial: Theme = saved ?? (prefersDark ? 'dark' : 'light');
+    // Default is always dark — brand identity is navy/gold
+    const initial: Theme = saved === 'light' ? 'light' : 'dark';
     setTheme(initial);
     document.documentElement.classList.toggle('dark', initial === 'dark');
   }, []);

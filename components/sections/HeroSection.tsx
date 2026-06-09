@@ -10,7 +10,7 @@ export default function HeroSection() {
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative min-h-screen bg-brand-navy flex items-center overflow-hidden">
+    <section className="relative min-h-screen bg-brand-navy dark:bg-brand-navy flex items-center overflow-hidden">
 
       {/* Background image — desktop/mobile responsive */}
       <div className="absolute inset-0">
