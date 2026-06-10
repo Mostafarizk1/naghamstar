@@ -153,9 +153,18 @@ export default function Footer() {
               `© ${new Date().getFullYear()} Nagham Star Real Estate. All rights reserved.`
             )}
           </p>
-          <p className="text-white/25 text-xs">
-            {t('سجل تجاري:', 'CR:')} <span dir="ltr">7052870172</span>
-          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href="/privacy-policy"
+              className="text-white/30 hover:text-brand-gold text-xs transition-colors duration-200"
+            >
+              {t('سياسة الخصوصية', 'Privacy Policy')}
+            </a>
+            <span className="text-white/15 text-xs">|</span>
+            <p className="text-white/25 text-xs">
+              {t('سجل تجاري:', 'CR:')} <span dir="ltr">7052870172</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
