@@ -62,7 +62,7 @@ export default function Header() {
             <LanguageSwitcher />
             <ThemeToggle />
             <a
-              href="#contact"
+              href="/#contact"
               className="hidden sm:inline-flex items-center px-5 py-2.5 bg-brand-gold text-brand-navy text-sm font-cairo font-bold rounded-xl hover:bg-brand-gold-light active:scale-95 transition-all duration-200 shadow-md"
             >
               {t('تواصل معنا', 'Contact Us')}
@@ -100,7 +100,7 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setMobileOpen(false)}
                 className="mt-3 flex justify-center px-5 py-3 bg-brand-gold text-brand-navy font-cairo font-bold rounded-xl text-sm"
               >
