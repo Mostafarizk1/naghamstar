@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Play, X, ChevronLeft, ChevronRight, Share2, Check } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 
 interface Video {
@@ -29,11 +30,37 @@ type TabKey = typeof TABS[number]['key'];
 
 export default function WorksSection({ realestate, realestateads }: WorksSectionProps) {
   const { t, isRTL } = useLanguage();
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabKey>('realestate');
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [copied, setCopied] = useState(false);
 
   const videos = activeTab === 'realestate' ? realestate : realestateads;
   const activeVideo = activeIndex !== null ? videos[activeIndex] : null;
+
+  // Auto-open video from URL params (?video=ID&tab=TAB)
+  useEffect(() => {
+    const videoId = searchParams.get('video');
+    const tab = searchParams.get('tab') as TabKey | null;
+    if (!videoId) return;
+
+    const targetTab: TabKey = tab === 'realestateads' ? 'realestateads' : 'realestate';
+    const pool = targetTab === 'realestate' ? realestate : realestateads;
+    const idx = pool.findIndex(v => (v.uniqueId ?? v.id) === videoId);
+    if (idx !== -1) {
+      setActiveTab(targetTab);
+      setActiveIndex(idx);
+    }
+  }, [searchParams, realestate, realestateads]);
+
+  const shareVideo = (video: Video) => {
+    const id = video.uniqueId ?? video.id;
+    const url = `${window.location.origin}/works?video=${id}&tab=${activeTab}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   const navigate = (dir: 'prev' | 'next') => {
     if (activeIndex === null) return;
@@ -172,13 +199,22 @@ export default function WorksSection({ realestate, realestateads }: WorksSection
               className="relative w-full max-w-4xl"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close */}
-              <button
-                onClick={closeModal}
-                className="absolute -top-10 end-0 text-white/70 hover:text-white transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
+              {/* Close + Share */}
+              <div className="absolute -top-10 end-0 flex items-center gap-2">
+                <button
+                  onClick={() => shareVideo(activeVideo!)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-brand-gold/20 text-white/70 hover:text-brand-gold text-xs font-cairo transition-all duration-200"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5" /> : <Share2 className="w-3.5 h-3.5" />}
+                  {copied ? t('تم النسخ!', 'Copied!') : t('مشاركة', 'Share')}
+                </button>
+                <button
+                  onClick={closeModal}
+                  className="text-white/70 hover:text-white transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
 
               {/* Player */}
               <div className="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-2xl">

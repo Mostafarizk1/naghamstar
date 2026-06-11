@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WorksSection from '@/components/sections/WorksSection';
@@ -30,7 +31,9 @@ export default async function WorksPage() {
     <>
       <Header />
       <main className="pt-16 md:pt-20">
-        <WorksSection realestate={realestate} realestateads={realestateads} />
+        <Suspense fallback={null}>
+          <WorksSection realestate={realestate} realestateads={realestateads} />
+        </Suspense>
       </main>
       <Footer />
     </>
