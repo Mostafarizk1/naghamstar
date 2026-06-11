@@ -143,8 +143,8 @@ export default function HeroSection() {
               {t('ابدأ شراكتك معنا', 'Start Your Partnership')}
               <Arrow className="w-4 h-4" />
             </a>
-            <a href="#services" className="btn-outline text-base px-8 py-4">
-              {t('استعرض خدماتنا', 'Explore Services')}
+            <a href="/works" className="btn-outline text-base px-8 py-4">
+              {t('شاهد معرض أعمالنا', 'View Our Works')}
             </a>
           </motion.div>
 
