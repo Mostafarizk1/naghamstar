@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Send, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -35,8 +36,30 @@ const contactItems = [
   },
 ];
 
+const WHATSAPP_NUMBER = '966565562255';
+
 export default function ContactSection() {
   const { t } = useLanguage();
+  const [name, setName]       = useState('');
+  const [phone, setPhone]     = useState('');
+  const [email, setEmail]     = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = [
+      `مرحباً نغم ستار 👋`,
+      ``,
+      `الاسم: ${name}`,
+      phone  ? `الجوال: ${phone}`  : '',
+      email  ? `البريد: ${email}`  : '',
+      ``,
+      `الرسالة:`,
+      message,
+    ].filter(Boolean).join('\n');
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+  };
 
   return (
     <section id="contact" className="section-py bg-brand-ivory dark:bg-[#111f30]">
@@ -92,14 +115,17 @@ export default function ContactSection() {
               {t('أرسل رسالتك', 'Send Your Message')}
             </h3>
 
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-gray-400 mb-1.5">
                     {t('الاسم الكامل', 'Full Name')}
                   </label>
                   <input
+                    required
                     type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     placeholder={t('اسمك الكريم', 'Your full name')}
                     className="w-full px-4 py-3 rounded-xl border border-brand-beige-dark dark:border-white/15 bg-brand-ivory dark:bg-[#0e1b2b] text-brand-navy dark:text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/30 transition-all duration-200"
                   />
@@ -110,6 +136,8 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     placeholder="+966"
                     className="w-full px-4 py-3 rounded-xl border border-brand-beige-dark dark:border-white/15 bg-brand-ivory dark:bg-[#0e1b2b] text-brand-navy dark:text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/30 transition-all duration-200"
                     dir="ltr"
@@ -123,6 +151,8 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder={t('بريدك الإلكتروني', 'your@email.com')}
                   className="w-full px-4 py-3 rounded-xl border border-brand-beige-dark dark:border-white/15 bg-brand-ivory dark:bg-[#0e1b2b] text-brand-navy dark:text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/30 transition-all duration-200"
                   dir="ltr"
@@ -134,7 +164,10 @@ export default function ContactSection() {
                   {t('الرسالة', 'Message')}
                 </label>
                 <textarea
+                  required
                   rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   placeholder={t('كيف يمكننا مساعدتك؟', 'How can we help you?')}
                   className="w-full px-4 py-3 rounded-xl border border-brand-beige-dark dark:border-white/15 bg-brand-ivory dark:bg-brand-navy text-brand-navy dark:text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/30 transition-all duration-200 resize-none"
                 />
@@ -145,7 +178,7 @@ export default function ContactSection() {
                 className="w-full btn-primary justify-center py-3.5"
               >
                 <Send className="w-4 h-4" />
-                {t('إرسال الرسالة', 'Send Message')}
+                {t('إرسال عبر واتساب', 'Send via WhatsApp')}
               </button>
             </form>
           </motion.div>
